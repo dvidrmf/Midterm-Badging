@@ -1,0 +1,29 @@
+<div class="home-container">
+  <section class="hero">
+    <h1>Welcome to Community Help Desk</h1>
+    <p>Your trusted source for community support and resources</p>
+  </section>
+
+  <section class="posts-section">
+    <h2>Latest Updates</h2>
+
+    <!-- Loading State -->
+    <div *ngIf="loading$ | async" class="loading-container">
+      <p>Loading posts...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error$ | async as error" class="error">
+      <p>{{ error }}</p>
+      <button (click)="refresh()">Try Again</button>
+    </div>
+
+    <!-- Posts Grid -->
+    <div *ngIf="!(loading$ | async) && !(error$ | async)" class="posts-grid">
+      <div *ngFor="let post of posts$ | async" class="post-card">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.body | truncate:100 }}</p>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,47 @@
+<div class="services-container">
+  <section class="services-hero">
+    <h1>Our Services</h1>
+    <p>Browse and search through our comprehensive service catalog</p>
+  </section>
+
+  <section class="search-section">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="onSearch()"
+      placeholder="Search services..."
+      class="search-input"
+    />
+    <button *ngIf="searchTerm" (click)="clearSearch()" class="clear-btn">Clear</button>
+  </section>
+
+  <section class="services-content">
+    <!-- Loading State -->
+    <div *ngIf="loading$ | async" class="loading-container">
+      <p>Loading services...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error$ | async as error" class="error">
+      <p>{{ error }}</p>
+      <button (click)="refresh()">Try Again</button>
+    </div>
+
+    <!-- Services Grid -->
+    <div *ngIf="!(loading$ | async) && !(error$ | async)" class="services-grid">
+      <div *ngFor="let post of filteredPosts$ | async" class="service-card">
+        <div class="service-icon">
+          <span>{{ post.id }}</span>
+        </div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.body | truncate:120 }}</p>
+      </div>
+    </div>
+
+    <!-- No Results -->
+    <div *ngIf="(filteredPosts$ | async)?.length === 0 && !(loading$ | async)" class="no-results">
+      <p>No services found matching "{{ searchTerm }}"</p>
+      <button (click)="clearSearch()">Show All</button>
+    </div>
+  </section>
+</div>

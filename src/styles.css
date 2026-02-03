@@ -1,0 +1,77 @@
+/* CLI Terminal Theme - Global Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #0c0c0c;
+  color: #00ff00;
+  line-height: 1.6;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff00;
+  border: 2px solid #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc00;
+}
+
+/* Selection */
+::selection {
+  background: #00ff00;
+  color: #0c0c0c;
+}
+
+/* Links */
+a {
+  color: #00ff00;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #00cc00;
+}
+
+/* Buttons */
+button {
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Input Fields */
+input,
+textarea {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #1a1a1a;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #006600;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #00cc00;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}

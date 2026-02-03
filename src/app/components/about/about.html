@@ -1,0 +1,51 @@
+<div class="about-container">
+  <section class="about-hero">
+    <h1>About Community Help Desk</h1>
+    <p>Dedicated to serving our community with excellence</p>
+  </section>
+
+  <section class="mission">
+    <h2>Our Mission</h2>
+    <p>
+      We are committed to providing accessible, reliable, and compassionate support
+      to all members of our community. Through our dedicated team and comprehensive
+      services, we strive to make a positive impact every day.
+    </p>
+  </section>
+
+  <section class="values">
+    <h2>Our Values</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>Integrity</h3>
+        <p>We operate with honesty and transparency in all our interactions.</p>
+      </div>
+      <div class="value-card">
+        <h3>Compassion</h3>
+        <p>We treat every person with empathy, respect, and understanding.</p>
+      </div>
+      <div class="value-card">
+        <h3>Excellence</h3>
+        <p>We continuously improve to deliver the highest quality service.</p>
+      </div>
+      <div class="value-card">
+        <h3>Community</h3>
+        <p>We believe in the power of working together for the common good.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team">
+    <h2>Meet Our Team</h2>
+    <div class="team-grid">
+      <div class="team-card" *ngFor="let member of teamMembers">
+        <div class="team-avatar">
+          <span>{{ member.name.charAt(0) }}</span>
+        </div>
+        <h3>{{ member.name }}</h3>
+        <p class="role">{{ member.role }}</p>
+        <p class="bio">{{ member.bio }}</p>
+      </div>
+    </div>
+  </section>
+</div>
